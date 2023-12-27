@@ -66,47 +66,9 @@ class DB:
         cursor = conn.cursor()
 
         cursor.execute(
-            """CREATE TABLE IF NOT EXISTS users (
-                id VARCHAR(255) PRIMARY KEY,
-                name VARCHAR(255)
-            );"""
-        )
-
-        cursor.execute(
-            """CREATE TABLE IF NOT EXISTS logging (
-                id VARCHAR(255),
-                enter_time DATETIME,
-                camera VARCHAR(255)
-            );"""
-        )
-
-        cursor.execute(
-            """CREATE TABLE IF NOT EXISTS cameras (
-                name VARCHAR(255),
-                type VARCHAR(255)
-            );"""
-        )
-
-        cursor.execute(
-            """CREATE TABLE IF NOT EXISTS dashboard_users (
-                user_id INT AUTO_INCREMENT PRIMARY KEY,
-                username VARCHAR(50) NOT NULL,
-                email VARCHAR(100) NOT NULL,
-                password_hash VARCHAR(255) NOT NULL,
-                password_salt VARCHAR(255) NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );"""
-        )
-
-        cursor.execute(
-            """CREATE TABLE IF NOT EXISTS query_config (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                owner_username VARCHAR(50) NOT NULL,
-                open_time TIME,
-                close_time TIME,
-                late_period TIME,
-                chill_period TIME,
-                working_days VARCHAR(8) NOT NULL
+            """CREATE TABLE IF NOT EXISTS cards (
+                owner_username VARCHAR(255) PRIMARY KEY,
+                balance INT
             );"""
         )
 
